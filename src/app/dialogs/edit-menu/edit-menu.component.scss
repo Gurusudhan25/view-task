@@ -1,0 +1,20 @@
+.input-box {
+  width: 700px;
+  height: 400px;
+  .width {
+    width: 800px;
+    height: 30px;
+  }
+  .form {
+    display: flex;
+    justify-content: center;
+  }
+  h1 {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  .actions-box {
+    display: flex;
+    justify-content: center;
+  }
+}

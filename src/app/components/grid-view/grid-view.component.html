@@ -1,0 +1,27 @@
+
+
+<div class="parent" *ngIf="!isLoading; else noBlock">
+  <div *ngFor="let val of list; index as i" class="child">
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title class="m-1">{{ val.name }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{ val.picture }}" alt="Photo of a Shiba Inu" />
+      <mat-card-content class="mt-2">
+        <div class="details">
+          <h3>{{ val.describe }}</h3>
+        </div>
+        <div class="menu-item">
+          
+          <app-menu [childInput]="val.id"></app-menu>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<ng-template #noBlock>
+  <div>
+    <app-spin></app-spin>
+  </div>
+</ng-template>

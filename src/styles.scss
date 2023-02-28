@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black !important;
+}
+
+li {
+  list-style: none;
+}
+
+.m-6 {
+  margin: 15px;
+}
+
+.element-with-scroll::-webkit-scrollbar {
+  width: 0px; /* hide scrollbar width */
+  height: 0px; /* hide scrollbar height */
+}
