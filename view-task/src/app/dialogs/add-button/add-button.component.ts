@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AddButtonInputComponent } from '../add-button-input/add-button-input.component';
+import { InputBoxComponent } from '../input-box/input-box.component';
 
 @Component({
   selector: 'app-add-button',
@@ -13,10 +13,7 @@ export class AddButtonComponent {
 
   constructor(public dialog: MatDialog) {}
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(AddButtonInputComponent, {
-      data: { name: this.name, describe: this.describe },
-    });
+  openAddDialog(): void {
+    const dialogRef = this.dialog.open(InputBoxComponent);
   }
-
 }

@@ -1,0 +1,75 @@
+<div class="input-box">
+  <div *ngIf="data; else no">
+    <h1 mat-dialog-title>EDIT USER</h1>
+  </div>
+  <ng-template #no>
+    <h1 mat-dialog-title>ADD NEW USER</h1>
+  </ng-template>
+  <!-- User name -->
+  <form [formGroup]="formDetails">
+    <div class="container form">
+      <mat-form-field style="width: 600px" appearance="outline">
+        <mat-label>Enter User Name</mat-label>
+        <input matInput formControlName="name" required #name />
+        <mat-icon matSuffix>person_outline</mat-icon>
+      </mat-form-field>
+    </div>
+    <!-- Error message -->
+    <div
+      *ngIf="
+        formDetails.get('name')?.invalid &&
+        (formDetails.get('name')?.dirty || formDetails.get('name')?.touched)
+      "
+      class="error-details"
+    >
+      <small *ngIf="formDetails.get('name')?.errors?.['required']">
+        Name Cannot be empty
+      </small>
+      <small *ngIf="formDetails.get('name')?.errors?.['maxlength']">
+        Name Cannot be more than 10 letters
+      </small>
+    </div>
+
+    <!-- Description -->
+    <div class="container form">
+      <mat-form-field style="width: 600px" appearance="outline">
+        <mat-label>Enter Description</mat-label>
+        <input matInput formControlName="describe" required />
+        <mat-icon matSuffix>description</mat-icon>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div mat-dialog-actions class="actions-box">
+    <button mat-raised-button color="basic" (click)="closeDialog()">
+      No Thanks
+    </button>
+    <div *ngIf="data; else add">
+      <button
+        mat-raised-button
+        color="accent"
+        [disabled]="formDetails.invalid"
+        [mat-dialog-close]
+        cdkFocusInitial
+        (click)="editUser()"
+        class="edit-button"
+      >
+        EDIT USER
+      </button>
+    </div>
+    <ng-template #add>
+      <button
+        mat-raised-button
+        color="accent"
+        [disabled]="formDetails.invalid"
+        [mat-dialog-close]
+        cdkFocusInitial
+        (click)="addUser()"
+      >
+        ADD USER
+      </button>
+    </ng-template>
+  </div>
+</div>
+
+<!-- -->

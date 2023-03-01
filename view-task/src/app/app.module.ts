@@ -13,7 +13,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { AddButtonComponent } from './dialogs/add-button/add-button.component';
-import { AddButtonInputComponent } from './dialogs/add-button-input/add-button-input.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -26,8 +25,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SpinComponent } from './loaders/spin/spin.component';
-import { EditMenuComponent } from './dialogs/edit-menu/edit-menu.component';
 import { DeleteMenuComponent } from './dialogs/delete-menu/delete-menu.component';
+import { InputBoxComponent } from './dialogs/input-box/input-box.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +35,10 @@ import { DeleteMenuComponent } from './dialogs/delete-menu/delete-menu.component
     GridViewComponent,
     ListViewComponent,
     AddButtonComponent,
-    AddButtonInputComponent,
     MenuComponent,
     SpinComponent,
-    EditMenuComponent,
     DeleteMenuComponent,
+    InputBoxComponent,
   ],
   imports: [
     BrowserModule,

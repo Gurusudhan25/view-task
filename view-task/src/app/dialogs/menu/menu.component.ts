@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { IUser } from 'src/app/components/grid-view/grid-view.component';
 import { RawDataService } from 'src/app/services/raw-data.service';
 import { DeleteMenuComponent } from '../delete-menu/delete-menu.component';
-import { EditMenuComponent } from '../edit-menu/edit-menu.component';
+import { InputBoxComponent } from '../input-box/input-box.component';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +11,7 @@ import { EditMenuComponent } from '../edit-menu/edit-menu.component';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent {
-  @Input() childInput: any;
+  @Input() childInput: string = '';
 
   constructor(
     public dialog: MatDialog,
@@ -19,10 +20,11 @@ export class MenuComponent {
 
   openEditDialog(): void {
     const availableUsers = this.rawDataService.users.getValue();
-    let currentUser: any = availableUsers.filter(
-      (user: any) => user.id === this.childInput
+    let currentUser: IUser[] = availableUsers.filter(
+      (user: { name: string; describe: string; id: string }) =>
+        user.id === this.childInput
     );
-    const dialogRef = this.dialog.open(EditMenuComponent, {
+    const dialogRef = this.dialog.open(InputBoxComponent, {
       data: {
         name: currentUser[0].name,
         describe: currentUser[0].describe,

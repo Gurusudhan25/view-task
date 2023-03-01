@@ -1,5 +1,7 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { RawDataService } from 'src/app/services/raw-data.service';
+import { IUser } from '../grid-view/grid-view.component';
 
 @Component({
   selector: 'app-list-view',
@@ -8,24 +10,19 @@ import { RawDataService } from 'src/app/services/raw-data.service';
 })
 export class ListViewComponent implements OnInit {
   public isLoading = false;
-  public list: any;
+  public userData = new MatTableDataSource();
   displayedColumns: string[] = ['name', 'Description', 'menubar'];
 
-  constructor(
-    private rawDataService: RawDataService,
-    private changeDetect: ChangeDetectorRef
-  ) {}
+  constructor(private rawDataService: RawDataService) {}
 
   ngOnInit() {
     this.isLoading = true;
     this.rawDataService.getUserInfo();
-    this.rawDataService.users$.subscribe((val: any) => {
-      this.list = val;
-      this.isLoading = false;
+    this.rawDataService.users$.subscribe((val: IUser[]) => {
+      this.userData.data = val;
     });
-  }
-
-  ngOnChanges() {
-    this.changeDetect.detectChanges();
+    setInterval(() => {
+      this.isLoading = false;
+    }, 700);
   }
 }

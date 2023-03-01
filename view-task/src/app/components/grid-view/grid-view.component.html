@@ -1,7 +1,7 @@
 
 
 <div class="parent" *ngIf="!isLoading; else noBlock">
-  <div *ngFor="let val of list; index as i" class="child">
+  <div *ngFor="let val of userData; index as i" class="child">
     <mat-card class="card">
       <mat-card-header>
         <mat-card-title class="m-1">{{ val.name }}</mat-card-title>

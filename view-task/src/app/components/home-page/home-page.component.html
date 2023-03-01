@@ -1,9 +1,8 @@
 <div class="container-h">
-  <mat-slide-toggle
-    class="toggle"
-    [checked]="isToggleOn"
-    (change)="onToggle()"
-  ></mat-slide-toggle>
+  <h1>VIEW TASK</h1>
+  <mat-slide-toggle class="toggle" [checked]="isToggleOn" (change)="onToggle()">
+    <p>CHANGE VIEW</p></mat-slide-toggle
+  >
 </div>
 
 <div class="collapse d-lg-block sidebar collapse bg-blue m-0">
@@ -32,8 +31,10 @@
   </div>
 </div>
 
-<div class="container w-100 add-button">
-  <app-add-button></app-add-button>
+<div class="container">
+  <div class="add-button">
+    <app-add-button></app-add-button>
+  </div>
 </div>
 
 <div class="container w-100 View">

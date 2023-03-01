@@ -10,7 +10,7 @@ import { RawDataService } from 'src/app/services/raw-data.service';
 export class DeleteMenuComponent {
   constructor(
     public dialogRef: MatDialogRef<DeleteMenuComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: {id:string},
     private rawDataService: RawDataService
   ) {}
 

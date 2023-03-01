@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+
+export interface IUserDetails {
+  id: string;
+  name: string;
+  describe: string;
+  picture: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -12,11 +19,11 @@ export class DataService {
     return this._http.get(this.url);
   }
 
-  addData(obj: any) {
+  addData(obj: IUserDetails) {
     return this._http.post(this.url, obj);
   }
 
-  editData(obj: any, id: string) {
+  editData(obj: IUserDetails, id: string) {
     return this._http.put(`${this.url}/${id}`, obj);
   }
 

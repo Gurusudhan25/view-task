@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { DataService } from './data.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { IUser } from '../components/grid-view/grid-view.component';
 
 @Injectable({
   providedIn: 'root',
