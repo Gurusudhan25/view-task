@@ -14,7 +14,7 @@ export class DeleteMenuComponent {
     private rawDataService: RawDataService
   ) {}
 
-  onNoClick(): void {
+  closDialog(): void {
     this.dialogRef.close();
   }
 

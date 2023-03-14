@@ -1,5 +1,4 @@
-import { Component, OnInit, Inject, OnChanges } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
+import { Component, OnInit } from '@angular/core';
 import { RawDataService } from 'src/app/services/raw-data.service';
 
 export interface IUser {
@@ -15,16 +14,13 @@ export interface IUser {
   styleUrls: ['./grid-view.component.scss'],
 })
 export class GridViewComponent implements OnInit {
-  public userData: IUser[] =[];
+  public userData: IUser[] = [];
   public isLoading = false;
 
-  constructor(
-    private data: DataService,
-    private rawDataService: RawDataService
-  ) {}
+  constructor(private rawDataService: RawDataService) {}
 
   ngOnInit() {
-    this.isLoading = true;
+    this.isLoading = false;
     this.rawDataService.getUserInfo();
     this.rawDataService.users$.subscribe((val: IUser[]) => {
       this.userData = val;
@@ -33,4 +29,5 @@ export class GridViewComponent implements OnInit {
       this.isLoading = false;
     }, 700);
   }
+  
 }

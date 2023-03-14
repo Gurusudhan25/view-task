@@ -16,7 +16,7 @@ export class ListViewComponent implements OnInit {
   constructor(private rawDataService: RawDataService) {}
 
   ngOnInit() {
-    this.isLoading = true;
+    this.isLoading = false;
     this.rawDataService.getUserInfo();
     this.rawDataService.users$.subscribe((val: IUser[]) => {
       this.userData.data = val;

@@ -1,7 +1,7 @@
 <div class="input-box">
   <h1 mat-dialog-title>DELETE USER</h1>
   <div mat-dialog-actions class="actions-box">
-    <button mat-raised-button color="basic" (click)="onNoClick()">
+    <button mat-raised-button color="basic" (click)="closDialog()">
       No Thanks
     </button>
     <button mat-raised-button color="warn" [mat-dialog-close] (click)="deleteUser()" cdkFocusInitial>

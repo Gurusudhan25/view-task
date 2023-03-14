@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ChildrenOutletContexts, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -8,7 +8,10 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent {
   isToggleOn = true;
-  constructor(private _router: Router) {}
+  constructor(
+    private _router: Router,
+    private context: ChildrenOutletContexts
+  ) {}
   onToggle() {
     if (this.isToggleOn) {
       this._router.navigate(['home/gridview']);
@@ -20,5 +23,11 @@ export class HomePageComponent {
   }
   changeToggle() {
     this.isToggleOn = !this.isToggleOn;
+  }
+
+  getRouteAnimationData() {
+    return this.context.getContext('primary')?.route?.snapshot?.data?.[
+      'animation'
+    ];
   }
 }

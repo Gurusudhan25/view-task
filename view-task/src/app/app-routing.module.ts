@@ -13,9 +13,18 @@ const routes: Routes = [
     path: 'home',
     component: HomePageComponent,
     children: [
-      { path: 'gridview', component: GridViewComponent, title: 'Grid View' },
-      { path: 'listview', component: ListViewComponent, title: 'List View' },
+      {
+        path: 'gridview',
+        component: GridViewComponent,
+        title: 'Grid View',
+      },
+      {
+        path: 'listview',
+        component: ListViewComponent,
+        title: 'List View',
+      },
     ],
+    data: { animation: 'openClosePage' },
   },
 ];
 
